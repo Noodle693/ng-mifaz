@@ -1,0 +1,45 @@
+<div class="outer-container">
+  <div class="inner-container">
+    <div class="rider-container">
+      <app-avatar
+        [firstName]="ride.driverFirstName"
+        [lastName]="ride.driverLastName"
+        [colorConfig]="'overview-avatar'"
+      ></app-avatar>
+      <span class="rider-name">
+        {{ ride.driverFirstName + " " + ride.driverLastName }}
+      </span>
+    </div>
+    <div class="detail-container">
+      <div class="detail">
+        <mat-icon class="detail-icon"> place </mat-icon>
+        <span class="detail-label"> Abfahrtsort </span>
+        <span class="detail-value"> {{ ride.origin }} </span>
+      </div>
+      <div class="detail">
+        <mat-icon class="detail-icon"> flag </mat-icon>
+        <span class="detail-label"> Ziel </span>
+        <span class="detail-value"> {{ ride.destination }} </span>
+      </div>
+      <div class="detail">
+        <mat-icon class="detail-icon"> access_time </mat-icon>
+        <span class="detail-label"> Zeitpunkt </span>
+        <span class="detail-value">
+          {{ ride.date | date : "dd/MM/yyyy" }}
+        </span>
+      </div>
+      <div class="detail">
+        <mat-icon class="detail-icon"> group </mat-icon>
+        <span class="detail-label"> Mitfahrer </span>
+        <span class="detail-value">
+          {{ ride.passengerCount + "/" + ride.maxCount }}
+        </span>
+      </div>
+      <div class="detail">
+        <img class="svg-icon" src="../../../../assets/icons/moeny-bag.svg" />
+        <span class="detail-label"> Kosten </span>
+        <span class="detail-value"> {{ ride.cost + "€" }} </span>
+      </div>
+    </div>
+  </div>
+</div>

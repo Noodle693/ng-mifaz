@@ -1,0 +1,67 @@
+.user-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+  row-gap: 2rem;
+}
+
+.mifaz-logo {
+  margin-top: 2rem;
+  align-self: center;
+}
+
+.form-container {
+  width: 80vw;
+  max-width: 600px;
+  min-width: 250px;
+  display: flex;
+  flex-flow: column wrap;
+  row-gap: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.form-title {
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+.form {
+  display: flex;
+  flex-flow: column wrap;
+  row-gap: 0.8rem;
+}
+
+.form-field-full-width {
+  width: 100%;
+}
+
+.form-button {
+  height: 4rem;
+  font-size: 1.6rem;
+  color: white !important;
+  background-color: #4e8cd7 !important;
+}
+
+.options-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.option {
+  font-weight: 500;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #4e8cd7;
+}
+
+.option:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 540px) {
+  .options-container {
+    flex-flow: column wrap;
+  }
+}

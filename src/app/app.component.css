@@ -1,0 +1,15 @@
+.app-container {
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.app-header {
+  height: 10rem;
+  width: 100%;
+}
+
+.app-content {
+  flex-grow: 1;
+  width: 100%;
+}

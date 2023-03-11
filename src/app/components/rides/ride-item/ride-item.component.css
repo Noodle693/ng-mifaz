@@ -1,0 +1,64 @@
+.container {
+  cursor: pointer;
+  box-shadow: 0px 0px 8px 2px #b8b8b8;
+  width: 34vw;
+  max-width: 270px;
+  min-width: 180px;
+  display: flex;
+  flex-flow: column wrap;
+  row-gap: 1rem;
+  padding: 10px;
+}
+
+.container * {
+  font-size: 18px;
+}
+
+.container mat-icon {
+  width: 36px;
+  height: 36px;
+  font-size: 36px;
+}
+
+.container:hover {
+  box-shadow: 0px 0px 12px 3px #757575;
+}
+
+.driver-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.driver-name-container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.location-info-container {
+  display: flex;
+  flex-flow: column wrap;
+  row-gap: 0.3rem;
+}
+
+.location-item-container,
+.passenger-item-container {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  column-gap: 0.3rem;
+}
+
+.passenger-info-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 520px) {
+  .container {
+    max-width: unset;
+    width: 60vw;
+  }
+}

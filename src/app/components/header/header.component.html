@@ -1,0 +1,64 @@
+<div class="header-container">
+  <div class="inner-container">
+    <mat-icon
+      *ngIf="
+        currentRoute != '/ride-detail' &&
+          currentRoute != '/settings/update-name' &&
+          currentRoute != '/settings/update-phone' &&
+          currentRoute != '/settings/update-mail' &&
+          currentRoute != '/settings/update-password';
+        else showBackspace
+      "
+      class="drawer-toggle-button"
+      (click)="toggleDrawer()"
+    >
+      menu
+    </mat-icon>
+    <ng-template #showBackspace>
+      <mat-icon
+        class="drawer-toggle-button"
+        (click)="
+          currentRoute == '/ride-detail'
+            ? navigateBackToRides()
+            : navigateBackToSettings()
+        "
+      >
+        backspace
+      </mat-icon>
+    </ng-template>
+    <div
+      *ngIf="currentRoute == '/ride-overview'; else notRideOverview"
+      class="search"
+    >
+      <app-search></app-search>
+    </div>
+    <ng-template #notRideOverview>
+      <span class="header-title">{{
+        currentRoute == "/ride-creation"
+          ? "Fahrt aufgeben"
+          : currentRoute == "/user-rides"
+          ? "Meine Fahrten"
+          : currentRoute == "/ride-detail"
+          ? "Fahrtinformationen"
+          : currentRoute == "/settings"
+          ? "Einstellungen"
+          : currentRoute == "/settings/update-name"
+          ? "Namen ändern"
+          : currentRoute == "/settings/update-phone"
+          ? "Telefonnummer ändern"
+          : currentRoute == "/settings/update-mail"
+          ? "Email-Adresse ändern"
+          : currentRoute == "/settings/update-password"
+          ? "Passwort ändern"
+          : ""
+      }}</span>
+    </ng-template>
+    <div
+      *ngIf="currentRoute == '/ride-overview'; else dontShowIcon"
+      class="notification-icon"
+    ></div>
+    <ng-template #dontShowIcon>
+      <div class="empty-right"></div>
+    </ng-template>
+  </div>
+</div>

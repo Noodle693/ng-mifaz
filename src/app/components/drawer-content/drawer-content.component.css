@@ -1,0 +1,99 @@
+.drawer-container {
+  height: 100%;
+  width: 80vw;
+  max-width: 450px;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.user-info-container {
+  height: 15%;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 3rem;
+  background: #4e8cd7;
+}
+
+.user-info-container span {
+  color: white;
+  font-size: 18px;
+  word-break: break-all;
+}
+
+.user-info-container span:first-of-type {
+  font-weight: 700;
+}
+
+.user-info-list-container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.options-container {
+  display: flex;
+  flex-flow: column wrap;
+  row-gap: 1.5rem;
+  align-items: flex-start;
+  padding: 3rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.option:hover {
+  text-decoration: underline;
+}
+
+.option-icon {
+  height: 40px;
+  width: 40px;
+  font-size: 40px;
+  margin-right: 1rem;
+}
+
+.option-title {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.option-title:hover {
+  font-weight: 400;
+}
+
+.selected-option {
+  color: #4e8cd7;
+}
+
+@media (max-width: 410px) {
+  .user-info-container {
+    padding: 0.3rem 0rem 2rem 0.3rem;
+  }
+
+  .options-container {
+    padding-top: 0.3rem;
+    padding-left: 0.3rem;
+    padding-right: 0;
+    padding-bottom: 0;
+    row-gap: 0.5rem;
+  }
+
+  .option-icon {
+    height: 24px;
+    width: 24px;
+    font-size: 24px;
+    margin-right: 0.7rem;
+  }
+
+  .option-title {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 300px) {
+  .user-info-container {
+    flex-flow: row wrap;
+  }
+}

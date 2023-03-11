@@ -1,0 +1,61 @@
+.settings-container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.setting {
+  font-size: 26px;
+  font-weight: 300;
+  margin-left: 2rem;
+}
+
+.setting:not(:last-of-type) {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.setting:hover {
+  text-decoration: underline;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.setting:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.logout {
+  margin-top: 1.5rem;
+  color: #00377b;
+}
+
+.logout-mail {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  color: #4e8cd7;
+}
+
+@media (max-width: 460px) {
+  .setting {
+    font-size: 20px;
+  }
+
+  .setting:not(:last-of-type) {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .logout {
+    margin-top: 0.5rem;
+  }
+
+  .logout-mail {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .setting {
+    font-size: 16px;
+  }
+}

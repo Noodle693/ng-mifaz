@@ -1,0 +1,30 @@
+<form class="width form">
+  <mat-form-field class="width" appearance="fill">
+    <mat-icon matPrefix>search</mat-icon>
+    <mat-label>Fahrt suchen</mat-label>
+    <input type="text" placeholder="Ziel eingeben" [formControl]="searchControl" matInput [matAutocomplete]="auto" />
+    <mat-autocomplete #auto="matAutocomplete">
+      <div *ngIf="searchControl.value != ''; else searchHistory">
+        <mat-option *ngFor="let destination of filteredRideDestinations | async" [value]="destination">
+          {{ destination }}
+        </mat-option>
+      </div>
+      <ng-template #searchHistory>
+        <mat-optgroup label="Letzte Suchanfragen">
+          <mat-option *ngFor="let searchItem of filteredSearchList | async" [value]="searchItem.search">
+            <mat-icon>replay</mat-icon> {{ searchItem.search }}
+          </mat-option>
+        </mat-optgroup>
+      </ng-template>
+    </mat-autocomplete>
+    <button
+      *ngIf="searchControl.value != ''"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="searchControl.setValue('')"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</form>

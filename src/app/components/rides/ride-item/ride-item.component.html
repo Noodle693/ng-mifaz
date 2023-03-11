@@ -1,0 +1,37 @@
+<div class="container" (click)="onClickNavigate()">
+  <div class="driver-container">
+    <app-avatar
+      [firstName]="ride.driverFirstName"
+      [lastName]="ride.driverLastName"
+      [colorConfig]="'ride-item-avatar'"
+    ></app-avatar>
+    <div class="driver-name-container">
+      <span> {{ ride.driverFirstName }} </span>
+      <span> {{ ride.driverLastName }} </span>
+    </div>
+  </div>
+  <div class="location-info-container">
+    <div class="location-item-container">
+      <mat-icon> place </mat-icon>
+      <span> {{ ride.origin }} </span>
+    </div>
+    <div class="location-item-container">
+      <mat-icon> flag </mat-icon>
+      <span> {{ ride.destination }} </span>
+    </div>
+    <div class="location-item-container">
+      <mat-icon>access_time</mat-icon>
+      <span> {{ ride.date }} </span>
+    </div>
+  </div>
+  <div class="passenger-info-container">
+    <div class="passenger-item-container">
+      <mat-icon>group</mat-icon>
+      <span> {{ ride.passengerCount + "/" + ride.maxCount }} </span>
+    </div>
+    <div class="passenger-item-container">
+      <img width="36px" src="../../../../assets/icons/moeny-bag.svg" />
+      <span> {{ ride.cost + "€" }} </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<mat-drawer-container class="app-container" [hasBackdrop]="true">
+  <mat-drawer #drawer [mode]="'over'">
+    <app-drawer-content></app-drawer-content>
+  </mat-drawer>
+  <mat-drawer-container>
+    <div
+      *ngIf="
+        currentRoute !== '/login' &&
+          currentRoute !== '/register' &&
+          currentRoute !== '/reset-password' &&
+          currentRoute !== '/mode-selection' &&
+          currentRoute !== '/';
+        else loginHeader
+      "
+      class="app-header"
+    >
+      <app-header [currentRoute]="currentRoute"></app-header>
+    </div>
+    <ng-template #loginHeader>
+      <div class="app-header">
+        <app-header-login></app-header-login>
+      </div>
+    </ng-template>
+    <div class="app-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
+</mat-drawer-container>

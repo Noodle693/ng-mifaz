@@ -1,0 +1,32 @@
+[
+  {
+    "driverFirstName": "Melissa",
+    "driverLastName": "Stahl",
+    "origin": "Marktredwitz",
+    "destination": "München",
+    "date": "2023-04-02 12:00:00",
+    "passengerCount": 0,
+    "maxCount": 4,
+    "cost": 15
+  },
+  {
+    "driverFirstName": "Melissa",
+    "driverLastName": "Stahl",
+    "origin": "Bayreuth",
+    "destination": "Leipzig",
+    "date": "2023-04-06 06:45:00",
+    "passengerCount": 0,
+    "maxCount": 2,
+    "cost": 10
+  },
+  {
+    "driverFirstName": "Melissa",
+    "driverLastName": "Stahl",
+    "origin": "Hof",
+    "destination": "Köln",
+    "date": "2023-04-11 13:40:00",
+    "passengerCount": 2,
+    "maxCount": 4,
+    "cost": 30.5
+  }
+]

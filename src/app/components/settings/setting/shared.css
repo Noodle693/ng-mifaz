@@ -1,0 +1,34 @@
+.outer-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  width: 80vw;
+  max-width: 600px;
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  row-gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.form-button {
+  height: 4rem;
+  font-size: 1.6rem;
+  color: white !important;
+  background-color: #4e8cd7 !important;
+}
+
+@media (max-width: 460px) {
+  .form-container {
+    width: 95%;
+  }
+}

@@ -1,0 +1,86 @@
+<div class="drawer-container">
+  <div class="user-info-container">
+    <app-avatar
+      [firstName]="user.firstName"
+      [lastName]="user.lastName"
+      [colorConfig]="'ride-item-avatar'"
+    ></app-avatar>
+    <div class="user-info-list-container">
+      <span> {{ user.firstName + " " + user.lastName }} </span>
+      <span> {{ user.phone }} </span>
+      <span> {{ user.mail }} </span>
+    </div>
+  </div>
+  <div class="options-container">
+    <div class="option" (click)="navigate('/ride-overview')">
+      <mat-icon
+        class="option-icon"
+        [ngClass]="currentRoute == '/ride-overview' ? 'selected-option' : ''"
+      >
+        home
+      </mat-icon>
+      <span
+        class="option-title"
+        [ngClass]="currentRoute == '/ride-overview' ? 'selected-option' : ''"
+      >
+        Start
+      </span>
+    </div>
+    <div class="option" (click)="navigate('/search')">
+      <mat-icon
+        class="option-icon"
+        [ngClass]="currentRoute == '/search' ? 'selected-option' : ''"
+      >
+        search
+      </mat-icon>
+      <span
+        class="option-title"
+        [ngClass]="currentRoute == '/search' ? 'selected-option' : ''"
+      >
+        Suche
+      </span>
+    </div>
+    <div class="option" (click)="navigate('/ride-creation')">
+      <mat-icon
+        class="option-icon"
+        [ngClass]="currentRoute == '/ride-creation' ? 'selected-option' : ''"
+      >
+        note_add
+      </mat-icon>
+      <span
+        class="option-title"
+        [ngClass]="currentRoute == '/ride-creation' ? 'selected-option' : ''"
+      >
+        Fahrt aufgeben
+      </span>
+    </div>
+    <div class="option" (click)="navigate('/user-rides')">
+      <mat-icon
+        class="option-icon"
+        [ngClass]="currentRoute == '/user-rides' ? 'selected-option' : ''"
+      >
+        directions_car
+      </mat-icon>
+      <span
+        class="option-title"
+        [ngClass]="currentRoute == '/user-rides' ? 'selected-option' : ''"
+      >
+        Meine Fahrten
+      </span>
+    </div>
+    <div class="option" (click)="navigate('/settings')">
+      <mat-icon
+        class="option-icon"
+        [ngClass]="currentRoute == '/settings' ? 'selected-option' : ''"
+      >
+        settings
+      </mat-icon>
+      <span
+        class="option-title"
+        [ngClass]="currentRoute == '/settings' ? 'selected-option' : ''"
+      >
+        Einstellungen
+      </span>
+    </div>
+  </div>
+</div>

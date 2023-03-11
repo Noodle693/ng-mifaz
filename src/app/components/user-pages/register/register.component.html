@@ -1,0 +1,68 @@
+<div class="user-container">
+  <img class="mifaz-logo" src="../../../assets/logo/logo.png" width="150px" />
+  <div class="form-container">
+    <span class="form-title">Registrierung</span>
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input matInput formControlName="firstName" placeholder="Vorname*" />
+        <mat-error *ngIf="registerForm.controls.firstName.invalid">
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input matInput formControlName="lastName" placeholder="Nachname*" />
+        <mat-error *ngIf="registerForm.controls.lastName.invalid">
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input
+          matInput
+          type="email"
+          formControlName="mail"
+          placeholder="Email*"
+        />
+        <mat-error *ngIf="registerForm.controls.mail.invalid">
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input matInput formControlName="phone" placeholder="Telefonnummer*" />
+        <mat-error *ngIf="registerForm.controls.phone.invalid">
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          placeholder="Passwort*"
+        />
+        <mat-error *ngIf="registerForm.controls.password.invalid">
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input
+          matInput
+          type="password"
+          formControlName="passwordConfirmation"
+          placeholder="Passwort bestätigen*"
+        />
+        <mat-error *ngIf="registerForm.controls.passwordConfirmation.invalid">
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <button class="form-button" mat-flat-button type="submit">
+        Registrieren
+      </button>
+    </form>
+    <div class="options-container">
+      <span>
+        Hast du schon ein Konto? Klicke
+        <span class="option" (click)="onLoginClick()">hier</span>
+      </span>
+    </div>
+  </div>
+</div>

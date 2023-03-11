@@ -1,0 +1,38 @@
+<div class="outer-container">
+  <div class="inner-container">
+    <div class="user-container">
+      <app-avatar
+        [firstName]="user.firstName"
+        [lastName]="user.lastName"
+        [colorConfig]="'overview-avatar'"
+      ></app-avatar>
+      <span class="user-name">{{ user.firstName + " " + user.lastName }}</span>
+    </div>
+    <div class="user-rides-container">
+      <div class="passenger-container">
+        <div class="passenger-title-container">
+          <mat-icon class="passenger-icon"> transfer_within_a_station</mat-icon>
+          <span class="passenger-text">Ich bin Mitfahrer</span>
+        </div>
+        <div class="passenger-rides">
+          <app-ride-item
+            *ngFor="let ride of passengerRides"
+            [ride]="ride"
+          ></app-ride-item>
+        </div>
+      </div>
+      <div class="driver-container">
+        <div class="driver-title-container">
+          <mat-icon class="driver-icon"> directions_car</mat-icon>
+          <span class="driver-text">Ich bin Fahrer</span>
+        </div>
+        <div class="driver-rides">
+          <app-ride-item
+            *ngFor="let ride of driverRides"
+            [ride]="ride"
+          ></app-ride-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

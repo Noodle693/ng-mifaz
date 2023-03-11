@@ -1,0 +1,41 @@
+<div class="outer-container">
+  <div class="form-container">
+    <form class="form" [formGroup]="updatePhoneForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input
+          matInput
+          formControlName="currentPhone"
+          placeholder="Aktuelle Telefonnummer*"
+        />
+        <mat-error *ngIf="updatePhoneForm.controls.currentPhone.invalid">
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input
+          matInput
+          formControlName="newPhone"
+          placeholder="Neue Telefonnummer*"
+        />
+        <mat-error *ngIf="updatePhoneForm.controls.newPhone.invalid">
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input
+          matInput
+          formControlName="newPhoneConfirmation"
+          placeholder="Telefonnummer bestätigen*"
+        />
+        <mat-error
+          *ngIf="updatePhoneForm.controls.newPhoneConfirmation.invalid"
+        >
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <button class="form-button" mat-flat-button type="submit">
+        Name ändern
+      </button>
+    </form>
+  </div>
+</div>

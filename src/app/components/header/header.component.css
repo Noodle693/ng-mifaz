@@ -1,0 +1,74 @@
+.header-container {
+  height: 100%;
+  background-color: #00377b;
+  display: flex;
+  align-items: flex-end;
+}
+
+.inner-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.drawer-toggle-button {
+  cursor: pointer;
+  color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 2.5rem;
+  margin-left: 2.5rem;
+}
+
+.drawer-toggle-button:hover {
+  color: rgb(216, 216, 216);
+}
+
+.header-title {
+  font-size: 2.5rem;
+  color: white;
+  word-break: break-all;
+  text-align: center;
+}
+
+.empty-right,
+.notification-icon {
+  margin-right: 5rem;
+}
+
+@media (max-width: 600px) {
+  .drawer-toggle-button {
+    margin-left: 0;
+  }
+
+  .empty-right,
+  .notification-icon {
+    margin-right: 2.5rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .drawer-toggle-button {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .header-title {
+    font-size: 1.8rem;
+  }
+
+  .empty-right,
+  .notification-icon {
+    margin-right: 1.5rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .header-title {
+    font-size: 1.4rem;
+  }
+}

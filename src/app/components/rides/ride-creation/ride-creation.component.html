@@ -1,0 +1,60 @@
+<div class="outer-container">
+  <div class="ride-creation-container">
+    <form class="form" [formGroup]="rideCreationForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input matInput formControlName="origin" placeholder="Treffpunkt*" />
+        <mat-error *ngIf="rideCreationForm.controls.origin.invalid">
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input matInput formControlName="destination" placeholder="Ziel*" />
+        <mat-error *ngIf="rideCreationForm.controls.destination.invalid">
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input
+          matInput
+          formControlName="date"
+          placeholder="Abfahrtszeitpunkt*"
+        />
+        <mat-error *ngIf="rideCreationForm.controls.date.invalid">
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input
+          matInput
+          formControlName="passengerCount"
+          placeholder="Anzahl der Mitfahrenden*"
+        />
+        <mat-error
+          *ngIf="
+            rideCreationForm.controls.passengerCount.errors != null &&
+            rideCreationForm.controls.passengerCount.errors['required']
+          "
+        >
+          Eingabe benötigt!
+        </mat-error>
+        <mat-error
+          *ngIf="
+            rideCreationForm.controls.passengerCount.errors != null &&
+            rideCreationForm.controls.passengerCount.errors['max']
+          "
+        >
+          Maximal 4 Mitfahrende
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-full-width" appearance="outline">
+        <input matInput formControlName="cost" placeholder="Kosten*" />
+        <mat-error *ngIf="rideCreationForm.controls.cost.invalid">
+          Eingabe benötigt!
+        </mat-error>
+      </mat-form-field>
+      <button class="form-button" mat-flat-button type="submit">
+        Fahrt aufgeben
+      </button>
+    </form>
+  </div>
+</div>

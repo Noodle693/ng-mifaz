@@ -1,0 +1,12 @@
+<div
+  class="user-avatar"
+  [ngClass]="
+    colorConfig == 'overview-avatar'
+      ? 'overview-avatar'
+      : colorConfig == 'ride-item-avatar'
+      ? 'ride-item-avatar'
+      : ''
+  "
+>
+  {{ getAvatar() }}
+</div>

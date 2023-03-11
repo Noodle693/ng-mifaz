@@ -1,0 +1,31 @@
+.outer-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ride-creation-container {
+  width: 80vw;
+  max-width: 600px;
+  min-width: 250px;
+  margin-top: 4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-flow: column wrap;
+  row-gap: 0.8rem;
+}
+
+.form-field-full-width {
+  width: 100%;
+}
+
+.form-button {
+  height: 4rem;
+  font-size: 1.6rem;
+  color: white !important;
+  background-color: #4e8cd7 !important;
+}
