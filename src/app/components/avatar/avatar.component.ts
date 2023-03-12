@@ -11,8 +11,6 @@ export class AvatarComponent {
   @Input() colorConfig: string;
 
   getAvatar(): string {
-    return `${Array.from(this.firstName)[0].toUpperCase()}${Array.from(
-      this.lastName
-    )[0].toUpperCase()}`;
+    return `${Array.from(this.firstName)[0].toUpperCase()}${Array.from(this.lastName)[0].toUpperCase()}`;
   }
 }

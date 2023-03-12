@@ -25,6 +25,7 @@ export class DataService {
     maxCount: 3,
     cost: 10,
   } as IRide);
+  origin: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   constructor() {}
 
@@ -58,5 +59,13 @@ export class DataService {
 
   setClickedRide(ride: IRide): void {
     this.clickedRide.next(ride);
+  }
+
+  getOrigin(): Observable<string> {
+    return this.origin.asObservable();
+  }
+
+  setOrigin(origin: string): void {
+    this.origin.next(origin);
   }
 }

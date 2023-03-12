@@ -15,17 +15,11 @@ export class AppComponent implements AfterViewInit {
   currentRoute: string = '';
   @ViewChild('drawer') public drawer: MatDrawer;
 
-  constructor(
-    router: Router,
-    private drawerService: DrawerService,
-    dataService: DataService
-  ) {
-    router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((event: any) => {
-        dataService.setCurrentRoute(event.url);
-        this.currentRoute = event.url;
-      });
+  constructor(router: Router, private drawerService: DrawerService, dataService: DataService) {
+    router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((event: any) => {
+      dataService.setCurrentRoute(event.url);
+      this.currentRoute = event.url;
+    });
   }
 
   ngAfterViewInit(): void {

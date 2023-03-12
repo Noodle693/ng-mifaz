@@ -13,11 +13,7 @@ export class DrawerContentComponent {
   user: IUser;
   currentRoute: string;
 
-  constructor(
-    dataService: DataService,
-    private router: Router,
-    private drawerService: DrawerService
-  ) {
+  constructor(dataService: DataService, private router: Router, private drawerService: DrawerService) {
     dataService.getUser().subscribe({
       next: (user) => {
         this.user = user;

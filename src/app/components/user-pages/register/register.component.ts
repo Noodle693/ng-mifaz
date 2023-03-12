@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-register',
@@ -17,10 +19,25 @@ export class RegisterComponent {
     passwordConfirmation: new FormControl('', [Validators.required]),
   });
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private api: ApiService, private _snackBar: MatSnackBar) {}
 
   onSubmit() {
-    console.log(this.registerForm.value);
+    if (this.registerForm.valid) {
+      let values = this.registerForm.value;
+      if (values.password !== values.passwordConfirmation) {
+        this._snackBar.open('Passwörter stimmen nicht überein, erneut versuchen.', 'Schließen');
+      } else {
+        this.api
+          .createUser(values.mail!, values.password!, values.firstName!, values.lastName!, values.phone!)
+          .subscribe({
+            next: (user) => {
+              if (user) {
+                this._snackBar.open('Erfolgreich registriert, bitte zum Login wechseln.', 'Schließen');
+              }
+            },
+          });
+      }
+    }
   }
 
   onLoginClick() {

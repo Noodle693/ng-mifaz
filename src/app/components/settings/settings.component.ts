@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IUser } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
+import { IUser } from 'src/app/models/user';
 
 @Component({
   selector: 'app-settings',
@@ -11,7 +12,7 @@ import { DataService } from 'src/app/services/data.service';
 export class SettingsComponent {
   user: IUser;
 
-  constructor(dataService: DataService, private router: Router) {
+  constructor(dataService: DataService, private router: Router, private auth: AuthService) {
     dataService.getUser().subscribe({
       next: (user) => (this.user = user),
     });
@@ -19,5 +20,10 @@ export class SettingsComponent {
 
   navigate(destination: string) {
     this.router.navigate([destination]);
+  }
+
+  logout() {
+    this.auth.deleteAuth();
+    this.router.navigate(['/login']);
   }
 }

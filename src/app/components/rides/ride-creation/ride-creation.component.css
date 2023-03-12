@@ -23,6 +23,11 @@
   width: 100%;
 }
 
+.calendar {
+  width: 100%;
+  height: fit-content;
+}
+
 .form-button {
   height: 4rem;
   font-size: 1.6rem;

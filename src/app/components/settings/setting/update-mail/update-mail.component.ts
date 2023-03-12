@@ -13,10 +13,7 @@ export class UpdateMailComponent {
   updateMailForm = new FormGroup({
     currentMail: new FormControl('', [Validators.required, Validators.email]),
     newMail: new FormControl('', [Validators.required, Validators.email]),
-    newMailConfirmation: new FormControl('', [
-      Validators.required,
-      Validators.email,
-    ]),
+    newMailConfirmation: new FormControl('', [Validators.required, Validators.email]),
   });
 
   constructor(dataService: DataService) {

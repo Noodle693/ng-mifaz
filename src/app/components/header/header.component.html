@@ -17,19 +17,12 @@
     <ng-template #showBackspace>
       <mat-icon
         class="drawer-toggle-button"
-        (click)="
-          currentRoute == '/ride-detail'
-            ? navigateBackToRides()
-            : navigateBackToSettings()
-        "
+        (click)="currentRoute == '/ride-detail' ? navigateBackToRides() : navigateBackToSettings()"
       >
         backspace
       </mat-icon>
     </ng-template>
-    <div
-      *ngIf="currentRoute == '/ride-overview'; else notRideOverview"
-      class="search"
-    >
+    <div *ngIf="currentRoute == '/ride-overview'; else notRideOverview" class="search">
       <app-search></app-search>
     </div>
     <ng-template #notRideOverview>
@@ -53,10 +46,7 @@
           : ""
       }}</span>
     </ng-template>
-    <div
-      *ngIf="currentRoute == '/ride-overview'; else dontShowIcon"
-      class="notification-icon"
-    ></div>
+    <div *ngIf="currentRoute == '/ride-overview'; else dontShowIcon" class="notification-icon"></div>
     <ng-template #dontShowIcon>
       <div class="empty-right"></div>
     </ng-template>

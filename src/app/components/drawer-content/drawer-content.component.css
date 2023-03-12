@@ -67,16 +67,29 @@
   color: #4e8cd7;
 }
 
+.mifaz-logo {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+@media (max-width: 480px) {
+  .user-info-container {
+    padding: 2rem 0rem 2rem 2rem;
+  }
+
+  .options-container {
+    padding: 0.3rem 0rem 2rem 0.3rem;
+  }
+}
+
 @media (max-width: 410px) {
   .user-info-container {
     padding: 0.3rem 0rem 2rem 0.3rem;
   }
 
   .options-container {
-    padding-top: 0.3rem;
-    padding-left: 0.3rem;
-    padding-right: 0;
-    padding-bottom: 0;
+    padding: 0.3rem 0 0 0.3rem;
     row-gap: 0.5rem;
   }
 

@@ -10,11 +10,13 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class RideItemComponent {
   @Input() ride: IRide;
+  @Input() origin: string;
 
   constructor(private router: Router, private dataService: DataService) {}
 
   onClickNavigate() {
     this.dataService.setClickedRide(this.ride);
+    this.dataService.setOrigin(this.origin);
     this.router.navigate(['/ride-detail']);
   }
 }

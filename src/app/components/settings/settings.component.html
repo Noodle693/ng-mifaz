@@ -1,25 +1,17 @@
 <div class="settings-container">
-  <div class="setting" (click)="navigate('/settings/update-name')">
-    Namen ändern
-  </div>
+  <div class="setting" (click)="navigate('/settings/update-name')">Namen ändern</div>
   <mat-divider></mat-divider>
-  <div class="setting" (click)="navigate('/settings/update-phone')">
-    Telefonnummer ändern
-  </div>
+  <div class="setting" (click)="navigate('/settings/update-phone')">Telefonnummer ändern</div>
   <mat-divider></mat-divider>
-  <div class="setting" (click)="navigate('/settings/update-mail')">
-    Emailadresse ändern
-  </div>
+  <div class="setting" (click)="navigate('/settings/update-mail')">Emailadresse ändern</div>
   <mat-divider></mat-divider>
-  <div class="setting" (click)="navigate('/settings/update-password')">
-    Passwort ändern
-  </div>
+  <div class="setting" (click)="navigate('/settings/update-password')">Passwort ändern</div>
   <mat-divider></mat-divider>
   <div class="setting">Suchhistorie löschen</div>
   <mat-divider></mat-divider>
   <div class="setting">Nutzerkonto löschen</div>
   <mat-divider></mat-divider>
-  <div class="setting logout">Ausloggen</div>
+  <div class="setting logout" (click)="logout()">Ausloggen</div>
   <span class="logout-mail"> {{ user.mail }} </span>
   <mat-divider></mat-divider>
 </div>

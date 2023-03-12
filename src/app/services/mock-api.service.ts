@@ -28,8 +28,6 @@ export class MockApiService {
   }
 
   getSearchHistory(): Observable<ISearchItem[]> {
-    return this.http.get<ISearchItem[]>(
-      '../assets/mock-data/search-history.json'
-    );
+    return this.http.get<ISearchItem[]>('../assets/mock-data/search-history.json');
   }
 }

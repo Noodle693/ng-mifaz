@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { ModeSelectionComponent } from './components/mode-selection/mode-selection.component';
 import { RideCreationComponent } from './components/rides/ride-creation/ride-creation.component';
 import { RideDetailComponent } from './components/rides/ride-detail/ride-detail.component';
@@ -19,18 +20,17 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
-  { path: 'mode-selection', component: ModeSelectionComponent },
-  { path: 'user-rides', component: UserRidesComponent },
-  { path: 'ride-creation', component: RideCreationComponent },
-  { path: 'ride-detail', component: RideDetailComponent },
-  { path: 'ride-overview', component: RideOverviewComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'settings/update-name', component: UpdateNameComponent },
-  { path: 'settings/update-phone', component: UpdatePhoneComponent },
-  { path: 'settings/update-mail', component: UpdateMailComponent },
-  { path: 'settings/update-password', component: UpdatePasswordComponent },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'mode-selection', component: ModeSelectionComponent, canActivate: [AuthGuard] },
+  { path: 'user-rides', component: UserRidesComponent, canActivate: [AuthGuard] },
+  { path: 'ride-creation', component: RideCreationComponent, canActivate: [AuthGuard] },
+  { path: 'ride-detail', component: RideDetailComponent, canActivate: [AuthGuard] },
+  { path: 'ride-overview', component: RideOverviewComponent, canActivate: [AuthGuard] },
+  { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: 'settings/update-name', component: UpdateNameComponent, canActivate: [AuthGuard] },
+  { path: 'settings/update-phone', component: UpdatePhoneComponent, canActivate: [AuthGuard] },
+  { path: 'settings/update-mail', component: UpdateMailComponent, canActivate: [AuthGuard] },
+  { path: 'settings/update-password', component: UpdatePasswordComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-reset-password',
@@ -11,7 +13,20 @@ export class ResetPasswordComponent {
     mail: new FormControl('', [Validators.required]),
   });
 
+  constructor(private api: ApiService, private _snackBar: MatSnackBar) {}
+
   onSubmit() {
-    console.log(this.resetForm.value);
+    if (this.resetForm.valid) {
+      let values = this.resetForm.value;
+      this.api.resetPassword(values.mail!).subscribe({
+        next: (result: any) => {
+          if (result.result) {
+            this._snackBar.open('Passwort erfolgreich auf "default" zurückgesetzt.', 'Schließen');
+          } else {
+            this._snackBar.open('E-Mail Adresse nicht gefunden.', 'Schließen');
+          }
+        },
+      });
+    }
   }
 }

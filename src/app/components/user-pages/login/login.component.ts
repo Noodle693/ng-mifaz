@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
-import { MockApiService } from 'src/app/services/mock-api.service';
 
 @Component({
   selector: 'app-login',
@@ -17,16 +19,29 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private mockApiService: MockApiService,
-    private dataService: DataService
+    private api: ApiService,
+    private dataService: DataService,
+    private _snackBar: MatSnackBar,
+    private auth: AuthService
   ) {}
 
   onSubmit() {
-    console.log(this.loginForm.value);
-    this.mockApiService.auth().subscribe({
-      next: (user) => this.dataService.setUser(user),
-    });
-    this.router.navigate(['/mode-selection']);
+    if (this.loginForm.valid) {
+      let values = this.loginForm.value;
+      this.api.authenticate(values.mail!, values.password!).subscribe({
+        next: (user: any) => {
+          if (user.user) {
+            this.auth.saveAuth();
+            this.api.saveAuthenticatedData(values.mail!, values.password!);
+            this.dataService.setUser(user.user);
+            this.router.navigate(['/mode-selection']);
+          } else {
+            this._snackBar.open('Daten fehlerhaft, versuchen sie es erneut.', 'Schließen');
+          }
+        },
+        error: (e) => this._snackBar.open('Daten fehlerhaft, versuchen sie es erneut.', 'Schließen'),
+      });
+    }
   }
 
   onRegisterClick() {

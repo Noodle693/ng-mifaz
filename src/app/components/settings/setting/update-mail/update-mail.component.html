@@ -2,41 +2,18 @@
   <div class="form-container">
     <form class="form" [formGroup]="updateMailForm" (ngSubmit)="onSubmit()">
       <mat-form-field class="form-field-full-width" appearance="outline">
-        <input
-          matInput
-          type="email"
-          formControlName="currentMail"
-          placeholder="Aktuelle Email-Adresse*"
-        />
-        <mat-error *ngIf="updateMailForm.controls.currentMail.invalid">
-          Eingabe benötigt!
-        </mat-error>
+        <input matInput type="email" formControlName="currentMail" placeholder="Aktuelle Email-Adresse*" />
+        <mat-error *ngIf="updateMailForm.controls.currentMail.invalid"> Eingabe benötigt! </mat-error>
       </mat-form-field>
       <mat-form-field class="form-field-full-width" appearance="outline">
-        <input
-          matInput
-          type="email"
-          formControlName="newMail"
-          placeholder="Neue Email-Adresse*"
-        />
-        <mat-error *ngIf="updateMailForm.controls.newMail.invalid">
-          Eingabe benötigt!
-        </mat-error>
+        <input matInput type="email" formControlName="newMail" placeholder="Neue Email-Adresse*" />
+        <mat-error *ngIf="updateMailForm.controls.newMail.invalid"> Eingabe benötigt! </mat-error>
       </mat-form-field>
       <mat-form-field class="form-field-full-width" appearance="outline">
-        <input
-          matInput
-          type="email"
-          formControlName="newMailConfirmation"
-          placeholder="Email-Adresse bestätigen*"
-        />
-        <mat-error *ngIf="updateMailForm.controls.newMailConfirmation.invalid">
-          Eingabe benötigt!
-        </mat-error>
+        <input matInput type="email" formControlName="newMailConfirmation" placeholder="Email-Adresse bestätigen*" />
+        <mat-error *ngIf="updateMailForm.controls.newMailConfirmation.invalid"> Eingabe benötigt! </mat-error>
       </mat-form-field>
-      <button class="form-button" mat-flat-button type="submit">
-        Name ändern
-      </button>
+      <button class="form-button" mat-flat-button type="submit">Name ändern</button>
     </form>
   </div>
 </div>
