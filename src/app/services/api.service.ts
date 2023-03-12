@@ -1,10 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IRide } from '../models/ride';
-import { ISearchItem } from '../models/search-item';
 import { IUser } from '../models/user';
-import { Buffer } from 'buffer';
 import { IGetRidesResponse } from '../models/api/getRidesResponse';
 import { ICreateRideRequest } from '../models/api/createRidesRequest';
 
@@ -12,7 +9,7 @@ import { ICreateRideRequest } from '../models/api/createRidesRequest';
   providedIn: 'root',
 })
 export class ApiService {
-  url: string = 'http://localhost:5555';
+  url: string = 'https://mifaz-exfu2xru2a-ew.a.run.app';
   header: {};
 
   constructor(private http: HttpClient) {}
