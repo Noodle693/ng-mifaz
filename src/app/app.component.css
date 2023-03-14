@@ -5,11 +5,12 @@
 }
 
 .app-header {
-  height: 10rem;
+  height: 8rem;
   width: 100%;
 }
 
 .app-content {
   flex-grow: 1;
   width: 100%;
+  margin-bottom: 2rem;
 }

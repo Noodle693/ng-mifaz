@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import "material-icons/iconfont/material-icons.css";
@@ -12,4 +12,8 @@ body {
 
 * {
   font-family: Lexend;
+}
+
+mat-form-field {
+  @include mat.form-field-density(-3);
 }

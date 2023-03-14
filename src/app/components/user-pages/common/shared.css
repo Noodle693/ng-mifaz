@@ -3,11 +3,12 @@
   display: flex;
   align-items: center;
   flex-flow: column wrap;
-  row-gap: 2rem;
+  row-gap: 1rem;
 }
 
 .mifaz-logo {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   align-self: center;
 }
 
@@ -17,20 +18,19 @@
   min-width: 250px;
   display: flex;
   flex-flow: column wrap;
-  row-gap: 2rem;
+  row-gap: 1rem;
   margin-left: 2rem;
   margin-right: 2rem;
 }
 
 .form-title {
   font-weight: 500;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 .form {
   display: flex;
   flex-flow: column wrap;
-  row-gap: 0.8rem;
 }
 
 .form-field-full-width {
@@ -38,8 +38,8 @@
 }
 
 .form-button {
-  height: 4rem;
-  font-size: 1.6rem;
+  height: 2.5rem;
+  font-size: 1.3rem;
   color: white !important;
   background-color: #4e8cd7 !important;
 }

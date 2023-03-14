@@ -1,6 +1,11 @@
 <div class="drawer-container">
   <div class="user-info-container">
-    <app-avatar [firstName]="user.firstName" [lastName]="user.lastName" [colorConfig]="'ride-item-avatar'"></app-avatar>
+    <app-avatar
+      class="user-avatar"
+      [firstName]="user.firstName"
+      [lastName]="user.lastName"
+      [colorConfig]="'ride-item-avatar'"
+    ></app-avatar>
     <div class="user-info-list-container">
       <span> {{ user.firstName + " " + user.lastName }} </span>
       <span> {{ user.phone }} </span>
