@@ -2,8 +2,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IUser } from '../models/user';
-import { IGetRidesResponse } from '../models/api/getRidesResponse';
-import { ICreateRideRequest } from '../models/api/createRidesRequest';
+import { IGetRideResponse } from '../models/api/get-ride-response';
+import { ICreateRideRequest } from '../models/api/create-ride-request';
+import { ICreateUserRequest } from '../models/api/create-user-request';
+import { ISearch } from '../models/search';
+import { ICreateSearchRequest } from '../models/api/create-search-request';
 
 @Injectable({
   providedIn: 'root',
@@ -28,15 +31,30 @@ export class ApiService {
     };
   }
 
-  createUser(mail: string, password: string, firstName: string, lastName: string, phone: string): Observable<IUser> {
+  createUser(request: ICreateUserRequest): Observable<IUser> {
     let ep = `${this.url}/Users/create`;
-    return this.http.post<IUser>(ep, {
-      mail: mail,
-      password: password,
-      firstName: firstName,
-      lastName: lastName,
-      phone: phone,
-    });
+    return this.http.post<IUser>(ep, request);
+  }
+
+  updateUser(user: IUser, password: string): Observable<void> {
+    let ep = `${this.url}/Users/update`;
+    return this.http.put<void>(
+      ep,
+      {
+        id: user.id,
+        mail: user.mail,
+        password: password,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        phone: user.phone,
+      },
+      this.header
+    );
+  }
+
+  deleteUser(userId: number): Observable<void> {
+    let ep = `${this.url}/Users/${userId}`;
+    return this.http.delete<void>(ep, this.header);
   }
 
   resetPassword(mail: string): Observable<any> {
@@ -44,14 +62,14 @@ export class ApiService {
     return this.http.post<any>(ep, { mail: mail });
   }
 
-  getRides(): Observable<IGetRidesResponse> {
+  getRides(): Observable<IGetRideResponse> {
     let ep = `${this.url}/Rides`;
-    return this.http.get<IGetRidesResponse>(ep, this.header);
+    return this.http.get<IGetRideResponse>(ep, this.header);
   }
 
-  getPersonRides(personId: number, isDriver: boolean): Observable<IGetRidesResponse> {
+  getPersonRides(personId: number, isDriver: boolean): Observable<IGetRideResponse> {
     let ep = `${this.url}/Rides/${personId}?isDriver=${isDriver}`;
-    return this.http.get<IGetRidesResponse>(ep, this.header);
+    return this.http.get<IGetRideResponse>(ep, this.header);
   }
 
   createRide(request: ICreateRideRequest): Observable<ICreateRideRequest> {
@@ -59,5 +77,18 @@ export class ApiService {
     return this.http.post<ICreateRideRequest>(ep, request, this.header);
   }
 
-  //   getSearchHistory(): Observable<ISearchItem[]> {}
+  getSearches(userId: number): Observable<ISearch[]> {
+    let ep = `${this.url}/Searches/${userId}`;
+    return this.http.get<ISearch[]>(ep, this.header);
+  }
+
+  createSearch(request: ICreateSearchRequest): Observable<ICreateSearchRequest> {
+    let ep = `${this.url}/Searches/create`;
+    return this.http.post<ISearch>(ep, { request }, this.header);
+  }
+
+  deleteSearch(userId: number): Observable<void> {
+    let ep = `${this.url}/Searches/${userId}`;
+    return this.http.delete<void>(ep, this.header);
+  }
 }

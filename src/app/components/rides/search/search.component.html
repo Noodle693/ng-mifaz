@@ -11,8 +11,8 @@
       </div>
       <ng-template #searchHistory>
         <mat-optgroup label="Letzte Suchanfragen">
-          <mat-option *ngFor="let searchItem of filteredSearchList | async" [value]="searchItem.search">
-            <mat-icon>replay</mat-icon> {{ searchItem.search }}
+          <mat-option *ngFor="let searchItem of filteredSearchList | async" [value]="searchItem.value">
+            <mat-icon>replay</mat-icon> {{ searchItem.value }}
           </mat-option>
         </mat-optgroup>
       </ng-template>

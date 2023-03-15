@@ -9,7 +9,7 @@
   <mat-divider></mat-divider>
   <div class="setting">Suchhistorie löschen</div>
   <mat-divider></mat-divider>
-  <div class="setting">Nutzerkonto löschen</div>
+  <div class="setting" (click)="deleteUser()">Nutzerkonto löschen</div>
   <mat-divider></mat-divider>
   <div class="setting logout" (click)="logout()">Ausloggen</div>
   <span class="logout-mail"> {{ user.mail }} </span>

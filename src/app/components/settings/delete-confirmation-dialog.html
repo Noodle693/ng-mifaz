@@ -1,0 +1,15 @@
+<div class="delete-dialog-container">
+  <div class="delete-dialog-inner-container">
+    <span>
+      Sind sie sicher, dass Sie Ihr Nutzerkonto löschen wollen? <br />
+      Dieser Vorgang kann <strong>nicht</strong> rückgängig gemacht werden!
+    </span>
+    <div class="delete-button-container" mat-dialog-actions>
+      <button class="delete-no-button" mat-flat-button (click)="onNoClick()" cdkFocusInitial>Nein</button>
+      <button class="delete-yes-button" mat-flat-button (click)="onYesClick()">
+        <mat-icon>delete_forever</mat-icon>
+        Ja
+      </button>
+    </div>
+  </div>
+</div>

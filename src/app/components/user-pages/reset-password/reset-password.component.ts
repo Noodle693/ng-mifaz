@@ -13,7 +13,7 @@ export class ResetPasswordComponent {
     mail: new FormControl('', [Validators.required]),
   });
 
-  constructor(private api: ApiService, private _snackBar: MatSnackBar) {}
+  constructor(private api: ApiService, private snackBar: MatSnackBar) {}
 
   onSubmit() {
     if (this.resetForm.valid) {
@@ -21,9 +21,9 @@ export class ResetPasswordComponent {
       this.api.resetPassword(values.mail!).subscribe({
         next: (result: any) => {
           if (result.result) {
-            this._snackBar.open('Passwort erfolgreich auf "default" zurückgesetzt.', 'Schließen');
+            this.snackBar.open('Passwort erfolgreich auf "default" zurückgesetzt.', 'Schließen');
           } else {
-            this._snackBar.open('E-Mail Adresse nicht gefunden.', 'Schließen');
+            this.snackBar.open('E-Mail Adresse nicht gefunden.', 'Schließen');
           }
         },
       });

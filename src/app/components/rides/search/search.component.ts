@@ -4,7 +4,7 @@ import { map, Observable, startWith } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { MockApiService } from 'src/app/services/mock-api.service';
 import { IRide } from 'src/app/models/ride';
-import { ISearchItem } from 'src/app/models/search-item';
+import { ISearch } from 'src/app/models/search';
 
 @Component({
   selector: 'app-search',
@@ -15,9 +15,9 @@ export class SearchComponent {
   searchControl = new FormControl('');
   rides: IRide[] = [];
   rideDestinations: string[] = [];
-  searchList: ISearchItem[] = [];
+  searchList: ISearch[] = [];
   filteredRideDestinations: Observable<string[]>;
-  filteredSearchList: Observable<ISearchItem[]>;
+  filteredSearchList: Observable<ISearch[]>;
 
   constructor(private mockApiService: MockApiService, private dataService: DataService) {
     this.mockApiService.getSearchHistory().subscribe({
@@ -43,9 +43,9 @@ export class SearchComponent {
     });
   }
 
-  private _filterSearchItems(value: string): ISearchItem[] {
+  private _filterSearchItems(value: string): ISearch[] {
     const filterValue = value.toLowerCase();
-    return this.searchList.filter((opt) => opt.search.toLowerCase().includes(filterValue));
+    return this.searchList.filter((opt) => opt.value.toLowerCase().includes(filterValue));
   }
 
   private _filterRideDestinations(value: string): string[] {

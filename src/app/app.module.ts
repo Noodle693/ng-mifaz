@@ -10,6 +10,7 @@ import { DrawerService } from './services/drawer.service';
 
 import { AppComponent } from './app.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
+import { DeleteConfirmationDialog } from './components/settings/delete-confirmation-dialog';
 import { DrawerContentComponent } from './components/drawer-content/drawer-content.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderLoginComponent } from './components/header-login/header-login.component';
@@ -32,25 +33,26 @@ import { UserRidesComponent } from './components/rides/user-rides/user-rides.com
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
+    AvatarComponent,
+    DeleteConfirmationDialog,
+    DrawerContentComponent,
     HeaderComponent,
     HeaderLoginComponent,
-    ResetPasswordComponent,
+    LoginComponent,
     ModeSelectionComponent,
+    RegisterComponent,
+    ResetPasswordComponent,
     RideCreationComponent,
-    UserRidesComponent,
-    RideItemComponent,
-    AvatarComponent,
     RideDetailComponent,
-    DrawerContentComponent,
-    SettingsComponent,
+    RideItemComponent,
     RideOverviewComponent,
     SearchComponent,
-    UpdateNameComponent,
-    UpdatePhoneComponent,
+    SettingsComponent,
     UpdateMailComponent,
+    UpdateNameComponent,
     UpdatePasswordComponent,
+    UpdatePhoneComponent,
+    UserRidesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, AngularMaterialModule, ReactiveFormsModule, HttpClientModule],
   providers: [DrawerService, ApiService],

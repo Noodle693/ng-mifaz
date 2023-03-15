@@ -19,20 +19,26 @@ export class RegisterComponent {
     passwordConfirmation: new FormControl('', [Validators.required]),
   });
 
-  constructor(private router: Router, private api: ApiService, private _snackBar: MatSnackBar) {}
+  constructor(private router: Router, private api: ApiService, private snackBar: MatSnackBar) {}
 
   onSubmit() {
     if (this.registerForm.valid) {
       let values = this.registerForm.value;
       if (values.password !== values.passwordConfirmation) {
-        this._snackBar.open('Passwörter stimmen nicht überein, erneut versuchen.', 'Schließen');
+        this.snackBar.open('Passwörter stimmen nicht überein, erneut versuchen.', 'Schließen');
       } else {
         this.api
-          .createUser(values.mail!, values.password!, values.firstName!, values.lastName!, values.phone!)
+          .createUser({
+            mail: values.mail!,
+            password: values.password!,
+            firstName: values.firstName!,
+            lastName: values.lastName!,
+            phone: values.phone!,
+          })
           .subscribe({
             next: (user) => {
               if (user) {
-                this._snackBar.open('Erfolgreich registriert, bitte zum Login wechseln.', 'Schließen');
+                this.snackBar.open('Erfolgreich registriert, bitte zum Login wechseln.', 'Schließen');
               }
             },
           });

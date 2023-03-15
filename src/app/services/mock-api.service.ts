@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IRide } from '../models/ride';
-import { ISearchItem } from '../models/search-item';
+import { ISearch } from '../models/search';
 import { IUser } from '../models/user';
 
 @Injectable({
@@ -27,7 +27,7 @@ export class MockApiService {
     return this.http.get<IRide[]>('../assets/mock-data/driver-rides.json');
   }
 
-  getSearchHistory(): Observable<ISearchItem[]> {
-    return this.http.get<ISearchItem[]>('../assets/mock-data/search-history.json');
+  getSearchHistory(): Observable<ISearch[]> {
+    return this.http.get<ISearch[]>('../assets/mock-data/search-history.json');
   }
 }

@@ -21,7 +21,7 @@ export class LoginComponent {
     private router: Router,
     private api: ApiService,
     private dataService: DataService,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     private auth: AuthService
   ) {}
 
@@ -36,10 +36,10 @@ export class LoginComponent {
             this.dataService.setUser(user.user);
             this.router.navigate(['/mode-selection']);
           } else {
-            this._snackBar.open('Daten fehlerhaft, versuchen sie es erneut.', 'Schließen');
+            this.snackBar.open('Daten fehlerhaft, versuchen sie es erneut.', 'Schließen');
           }
         },
-        error: (e) => this._snackBar.open('Daten fehlerhaft, versuchen sie es erneut.', 'Schließen'),
+        error: (e) => this.snackBar.open('Daten fehlerhaft, versuchen sie es erneut.', 'Schließen'),
       });
     }
   }

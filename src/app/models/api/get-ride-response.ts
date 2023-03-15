@@ -1,5 +1,5 @@
 import { IRide } from '../ride';
 
-export interface IGetRidesResponse {
+export interface IGetRideResponse {
   rides: IRide[];
 }
