@@ -25,4 +25,11 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.drawerService.setDrawer(this.drawer);
   }
+
+  removeQueryParams(): string {
+    if (this.currentRoute.includes('?')) {
+      let z = this.currentRoute.substring(0, this.currentRoute.indexOf('?'));
+      return z;
+    } else return this.currentRoute;
+  }
 }

@@ -5,25 +5,30 @@
     <input type="text" placeholder="Ziel eingeben" [formControl]="searchControl" matInput [matAutocomplete]="auto" />
     <mat-autocomplete #auto="matAutocomplete">
       <div *ngIf="searchControl.value != ''; else searchHistory">
-        <mat-option *ngFor="let destination of filteredRideDestinations | async" [value]="destination">
+        <mat-option
+          *ngFor="let destination of filteredRides | async"
+          [value]="destination"
+          (onSelectionChange)="applyFilter(destination)"
+        >
           {{ destination }}
+        </mat-option>
+        <mat-option *ngIf="(filteredRides | async)!.length == 0" (onSelectionChange)="onRideCreation()">
+          Keine Fahrten gefunden. Klicken Sie hier, um eine neue Fahrt mit diesem Ziel zu erstellen.
         </mat-option>
       </div>
       <ng-template #searchHistory>
         <mat-optgroup label="Letzte Suchanfragen">
-          <mat-option *ngFor="let searchItem of filteredSearchList | async" [value]="searchItem.value">
+          <mat-option
+            *ngFor="let searchItem of filteredSearchList | async"
+            [value]="searchItem.value"
+            (onSelectionChange)="applyFilter(searchItem.value)"
+          >
             <mat-icon>replay</mat-icon> {{ searchItem.value }}
           </mat-option>
         </mat-optgroup>
       </ng-template>
     </mat-autocomplete>
-    <button
-      *ngIf="searchControl.value != ''"
-      matSuffix
-      mat-icon-button
-      aria-label="Clear"
-      (click)="searchControl.setValue('')"
-    >
+    <button *ngIf="searchControl.value != ''" matSuffix mat-icon-button aria-label="Clear" (click)="onCancel()">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>

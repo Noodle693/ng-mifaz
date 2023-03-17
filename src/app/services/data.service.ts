@@ -49,6 +49,13 @@ export class DataService {
     return this.rides.asObservable();
   }
 
+  filterRides(value: string): void {
+    let tmp = this.rides.value;
+    this.setRides(
+      tmp.filter((r) => r.destination.toLowerCase().includes(value) || r.origin.toLowerCase().includes(value))
+    );
+  }
+
   setRides(rides: IRide[]): void {
     this.rides.next(rides);
   }

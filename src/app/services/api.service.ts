@@ -7,6 +7,7 @@ import { ICreateRideRequest } from '../models/api/create-ride-request';
 import { ICreateUserRequest } from '../models/api/create-user-request';
 import { ISearch } from '../models/search';
 import { ICreateSearchRequest } from '../models/api/create-search-request';
+import { ICreateSearchResponse } from '../models/api/create-search-response';
 
 @Injectable({
   providedIn: 'root',
@@ -82,9 +83,9 @@ export class ApiService {
     return this.http.get<ISearch[]>(ep, this.header);
   }
 
-  createSearch(request: ICreateSearchRequest): Observable<ICreateSearchRequest> {
+  createSearch(request: ICreateSearchRequest): Observable<ICreateSearchResponse> {
     let ep = `${this.url}/Searches/create`;
-    return this.http.post<ISearch>(ep, { request }, this.header);
+    return this.http.post<ICreateSearchResponse>(ep, request, this.header);
   }
 
   deleteSearch(userId: number): Observable<void> {

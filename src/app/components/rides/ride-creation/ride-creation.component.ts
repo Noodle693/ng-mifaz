@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { DataService } from 'src/app/services/data.service';
 import { ICreateRideRequest } from 'src/app/models/api/create-ride-request';
@@ -28,8 +28,14 @@ export class RideCreationComponent {
     private router: Router,
     private api: ApiService,
     private snackbar: MatSnackBar,
-    dataService: DataService
+    dataService: DataService,
+    route: ActivatedRoute
   ) {
+    route.queryParams.subscribe({
+      next: (params) => {
+        this.rideCreationForm.controls.destination.setValue(params['destination']);
+      },
+    });
     dataService.getUser().subscribe({
       next: (user) => (this.user = user),
     });
