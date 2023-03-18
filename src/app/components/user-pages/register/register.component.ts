@@ -15,8 +15,8 @@ export class RegisterComponent {
     lastName: new FormControl('', [Validators.required]),
     mail: new FormControl('', [Validators.required]),
     phone: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
-    passwordConfirmation: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    passwordConfirmation: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
 
   constructor(private router: Router, private api: ApiService, private snackBar: MatSnackBar) {}

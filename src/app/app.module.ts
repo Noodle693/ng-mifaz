@@ -10,6 +10,7 @@ import { DrawerService } from './services/drawer.service';
 
 import { AppComponent } from './app.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
+import { CancellationConfirmationDialog } from './components/rides/ride-detail/cancellation-confirmation-dialog';
 import { DeleteConfirmationDialog } from './components/settings/delete-confirmation-dialog';
 import { DrawerContentComponent } from './components/drawer-content/drawer-content.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -34,6 +35,7 @@ import { UserRidesComponent } from './components/rides/user-rides/user-rides.com
   declarations: [
     AppComponent,
     AvatarComponent,
+    CancellationConfirmationDialog,
     DeleteConfirmationDialog,
     DrawerContentComponent,
     HeaderComponent,

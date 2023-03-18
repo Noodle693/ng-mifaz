@@ -62,10 +62,10 @@ export class RideCreationComponent {
           next: (createdRide) => {
             if (createdRide) {
               this.snackbar.open('Fahrt erfolgreich angelegt.', 'Schließen');
+              this.router.navigate(['/user-rides']);
             }
           },
         });
-      this.router.navigate(['/user-rides']);
     }
   }
 }

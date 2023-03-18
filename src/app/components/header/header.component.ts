@@ -13,7 +13,7 @@ export class HeaderComponent {
   rideDetailOrigin: string = '';
 
   constructor(private drawerService: DrawerService, private router: Router, dataService: DataService) {
-    dataService.getOrigin().subscribe({
+    dataService.getRideDetailOrigin().subscribe({
       next: (value) => {
         this.rideDetailOrigin = value;
       },

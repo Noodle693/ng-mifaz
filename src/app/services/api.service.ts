@@ -8,6 +8,7 @@ import { ICreateUserRequest } from '../models/api/create-user-request';
 import { ISearch } from '../models/search';
 import { ICreateSearchRequest } from '../models/api/create-search-request';
 import { ICreateSearchResponse } from '../models/api/create-search-response';
+import { IUpdateUserResponse } from '../models/api/update-user-response';
 
 @Injectable({
   providedIn: 'root',
@@ -37,17 +38,20 @@ export class ApiService {
     return this.http.post<IUser>(ep, request);
   }
 
-  updateUser(user: IUser, password: string): Observable<void> {
+  updateUser(user: IUser, password: string, updatePassword: boolean): Observable<IUpdateUserResponse> {
     let ep = `${this.url}/Users/update`;
-    return this.http.put<void>(
+    return this.http.put<IUpdateUserResponse>(
       ep,
       {
-        id: user.id,
-        mail: user.mail,
-        password: password,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        phone: user.phone,
+        user: {
+          id: user.id,
+          mail: user.mail,
+          password: password,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          phone: user.phone,
+        },
+        updatePassword: updatePassword,
       },
       this.header
     );
@@ -76,6 +80,16 @@ export class ApiService {
   createRide(request: ICreateRideRequest): Observable<ICreateRideRequest> {
     let ep = `${this.url}/Rides/create`;
     return this.http.post<ICreateRideRequest>(ep, request, this.header);
+  }
+
+  deleteRide(rideId: number, isDriver: boolean, passengerId?: number): Observable<void> {
+    let ep = ``;
+    if (passengerId) {
+      ep = `${this.url}/Rides/${rideId}?isDriver=${isDriver}&passengerId=${passengerId}`;
+    } else {
+      ep = `${this.url}/Rides/${rideId}?isDriver=${isDriver}`;
+    }
+    return this.http.delete<void>(ep, this.header);
   }
 
   getSearches(userId: number): Observable<ISearch[]> {

@@ -40,6 +40,10 @@
         <span class="detail-label"> Kosten </span>
         <span class="detail-value"> {{ ride.cost + "€" }} </span>
       </div>
+      <button *ngIf="userType" class="cancellation-button" mat-flat-button (click)="onCancellation()">
+        <mat-icon class="cancellation-icon">delete_forever</mat-icon>
+        {{ userType == "passenger" ? "Mitfahrt absagen" : "Fahrt absagen" }}
+      </button>
     </div>
   </div>
 </div>

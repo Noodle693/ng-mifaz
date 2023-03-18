@@ -25,7 +25,7 @@
       </mat-form-field>
       <mat-form-field class="form-field-full-width" appearance="outline">
         <input matInput type="password" formControlName="passwordConfirmation" placeholder="Passwort bestätigen*" />
-        <mat-error *ngIf="registerForm.controls.passwordConfirmation.invalid"> Eingabe benötigt! </mat-error>
+        <mat-error *ngIf="registerForm.controls.passwordConfirmation.invalid"> Mindestens 6 Zeichen! </mat-error>
       </mat-form-field>
       <button class="form-button" mat-flat-button type="submit">Registrieren</button>
     </form>

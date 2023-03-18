@@ -68,7 +68,7 @@
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 375px) {
   .header-title {
     font-size: 1.4rem;
   }

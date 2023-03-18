@@ -1,4 +1,5 @@
 export interface IRide {
+  rideId: number;
   driverFirstName: string;
   driverLastName: string;
   origin: string;

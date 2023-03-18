@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { IRide } from 'src/app/models/ride';
 import { DataService } from 'src/app/services/data.service';
+import { IRide } from 'src/app/models/ride';
 
 @Component({
   selector: 'app-ride-item',
@@ -10,13 +10,14 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class RideItemComponent {
   @Input() ride: IRide;
-  @Input() origin: string;
+  @Input() rideDetailOrigin: string;
+  @Input() userType: string;
 
   constructor(private router: Router, private dataService: DataService) {}
 
   onClickNavigate() {
     this.dataService.setClickedRide(this.ride);
-    this.dataService.setOrigin(this.origin);
-    this.router.navigate(['/ride-detail']);
+    this.dataService.setRideDetailOrigin(this.rideDetailOrigin);
+    this.router.navigate(['/ride-detail'], { queryParams: { userType: this.userType } });
   }
 }

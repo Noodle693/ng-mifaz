@@ -15,7 +15,12 @@
           <span class="passenger-text">Ich bin Mitfahrer</span>
         </div>
         <div class="passenger-rides">
-          <app-ride-item *ngFor="let ride of passengerRides" [ride]="ride" [origin]="'user-rides'"></app-ride-item>
+          <app-ride-item
+            *ngFor="let ride of passengerRides"
+            [ride]="ride"
+            [rideDetailOrigin]="'user-rides'"
+            [userType]="'passenger'"
+          ></app-ride-item>
         </div>
       </div>
       <div class="driver-container">
@@ -24,7 +29,12 @@
           <span class="driver-text">Ich bin Fahrer</span>
         </div>
         <div class="driver-rides">
-          <app-ride-item *ngFor="let ride of driverRides" [ride]="ride" [origin]="'user-rides'"></app-ride-item>
+          <app-ride-item
+            *ngFor="let ride of driverRides"
+            [ride]="ride"
+            [rideDetailOrigin]="'user-rides'"
+            [userType]="'driver'"
+          ></app-ride-item>
         </div>
       </div>
     </div>

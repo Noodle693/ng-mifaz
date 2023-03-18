@@ -1,9 +1,14 @@
 <div class="delete-dialog-container">
   <div class="delete-dialog-inner-container">
-    <span>
-      Sind Sie sicher, dass Sie Ihr Nutzerkonto löschen wollen? <br />
-      Dieser Vorgang kann <strong>nicht</strong> rückgängig gemacht werden!
+    <span *ngIf="data.userType == 'passenger'; else driverText">
+      Sind Sie sicher, dass Sie Ihre Mitfahrt absagen wollen?
     </span>
+    <ng-template #driverText>
+      <span>
+        Sine Sie sicher, dass Sie diese Fahrt absagen wollen? <br />
+        Dieser Vorgang kann <strong>nicht</strong> rückgängig gemacht werden!
+      </span>
+    </ng-template>
     <div class="delete-button-container" mat-dialog-actions>
       <button class="delete-no-button" mat-flat-button (click)="onNoClick()" cdkFocusInitial>Nein</button>
       <button class="delete-yes-button" mat-flat-button (click)="onYesClick()">

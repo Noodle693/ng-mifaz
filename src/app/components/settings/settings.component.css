@@ -36,7 +36,7 @@
 }
 
 .delete-dialog-container {
-  height: 30vh;
+  height: 20vh;
   width: 60vw;
   max-width: 400px;
   padding: 1rem;
@@ -104,6 +104,7 @@
 
   .delete-dialog-container {
     width: 70vw;
+    height: 25vh;
     padding: 5px 10px 0 10px;
     font-size: 16px;
   }
