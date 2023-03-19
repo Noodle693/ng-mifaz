@@ -2,7 +2,7 @@
   <mat-form-field class="width" appearance="fill">
     <mat-icon matPrefix>search</mat-icon>
     <mat-label>Fahrt suchen</mat-label>
-    <input type="text" placeholder="Ziel eingeben" [formControl]="searchControl" matInput [matAutocomplete]="auto" />
+    <input type="text" placeholder="Ort eingeben" [formControl]="searchControl" matInput [matAutocomplete]="auto" />
     <mat-autocomplete #auto="matAutocomplete">
       <div *ngIf="searchControl.value != ''; else searchHistory">
         <mat-option

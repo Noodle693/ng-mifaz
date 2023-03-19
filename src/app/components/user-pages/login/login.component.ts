@@ -31,7 +31,7 @@ export class LoginComponent {
       this.api.authenticate(values.mail!, values.password!).subscribe({
         next: (user: any) => {
           if (user.user) {
-            this.auth.saveAuth();
+            this.auth.saveAuth(values.mail!, values.password!);
             this.api.saveAuthenticatedData(values.mail!, values.password!);
             this.dataService.setUser(user.user);
             this.router.navigate(['/mode-selection']);

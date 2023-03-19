@@ -1,14 +1,16 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IUser } from '../models/user';
-import { IGetRideResponse } from '../models/api/get-ride-response';
+import { ICreateRideBookingRequest } from '../models/api/create-ride-booking-request';
+import { ICreateRideBookingResponse } from '../models/api/create-ride-booking-response';
 import { ICreateRideRequest } from '../models/api/create-ride-request';
-import { ICreateUserRequest } from '../models/api/create-user-request';
-import { ISearch } from '../models/search';
 import { ICreateSearchRequest } from '../models/api/create-search-request';
 import { ICreateSearchResponse } from '../models/api/create-search-response';
+import { ICreateUserRequest } from '../models/api/create-user-request';
+import { IGetRideResponse } from '../models/api/get-ride-response';
+import { ISearch } from '../models/search';
 import { IUpdateUserResponse } from '../models/api/update-user-response';
+import { IUser } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -80,6 +82,11 @@ export class ApiService {
   createRide(request: ICreateRideRequest): Observable<ICreateRideRequest> {
     let ep = `${this.url}/Rides/create`;
     return this.http.post<ICreateRideRequest>(ep, request, this.header);
+  }
+
+  createRideBooking(request: ICreateRideBookingRequest): Observable<ICreateRideBookingResponse> {
+    let ep = `${this.url}/Rides/create-booking`;
+    return this.http.post<ICreateRideBookingResponse>(ep, request, this.header);
   }
 
   deleteRide(rideId: number, isDriver: boolean, passengerId?: number): Observable<void> {

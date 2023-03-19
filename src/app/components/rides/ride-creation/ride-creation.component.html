@@ -10,12 +10,19 @@
         <mat-error *ngIf="rideCreationForm.controls.destination.invalid"> Eingabe benötigt! </mat-error>
       </mat-form-field>
       <mat-form-field class="form-field-full-width" appearance="outline">
-        <input matInput [matDatepicker]="dp" formControlName="date" placeholder="Abfahrtsdatum*" />
+        <input
+          matInput
+          readonly
+          [min]="today"
+          [matDatepicker]="dp"
+          formControlName="date"
+          placeholder="Abfahrtsdatum*"
+        />
         <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
         <mat-datepicker touchUi #dp></mat-datepicker>
       </mat-form-field>
       <mat-form-field class="form-field-full-width" appearance="outline">
-        <input matInput formControlName="time" placeholder="Abfahrtszeitpunkt*" />
+        <input matInput formControlName="time" placeholder="Abfahrtszeitpunkt* (Format: 10:00, 15:45)" />
         <mat-error *ngIf="rideCreationForm.controls.time.invalid"> Eingabe benötigt! </mat-error>
       </mat-form-field>
       <mat-form-field class="form-field-full-width" appearance="outline">

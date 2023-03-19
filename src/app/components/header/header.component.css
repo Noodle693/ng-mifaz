@@ -1,8 +1,8 @@
 .header-container {
   height: 100%;
-  background-color: #00377b;
   display: flex;
   align-items: flex-end;
+  background-color: #00377b;
 }
 
 .inner-container {
@@ -15,12 +15,12 @@
 }
 
 .drawer-toggle-button {
-  cursor: pointer;
-  color: white;
   width: 2.5rem;
   height: 2.5rem;
   font-size: 2.5rem;
   margin-left: 2.5rem;
+  cursor: pointer;
+  color: white;
 }
 
 .drawer-toggle-button:hover {
@@ -29,9 +29,9 @@
 
 .header-title {
   font-size: 2.5rem;
-  color: white;
   word-break: break-all;
   text-align: center;
+  color: white;
 }
 
 .empty-right,
@@ -52,8 +52,8 @@
 
 @media (max-width: 460px) {
   .drawer-toggle-button {
-    width: 1.5rem;
     height: 1.5rem;
+    width: 1.5rem;
     font-size: 1.5rem;
     margin-left: 1.5rem;
   }

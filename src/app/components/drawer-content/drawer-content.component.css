@@ -16,9 +16,9 @@
 }
 
 .user-info-container span {
-  color: white;
   font-size: 18px;
   word-break: break-all;
+  color: white;
 }
 
 .user-info-container span:first-of-type {
@@ -33,8 +33,8 @@
 .options-container {
   display: flex;
   flex-flow: column wrap;
-  row-gap: 1.5rem;
   align-items: flex-start;
+  row-gap: 1.5rem;
   padding: 3rem;
 }
 
@@ -94,8 +94,8 @@
   }
 
   .options-container {
-    padding: 1rem 0 0 1rem;
     row-gap: 1rem;
+    padding: 1rem 0 0 1rem;
   }
 
   .option-icon {

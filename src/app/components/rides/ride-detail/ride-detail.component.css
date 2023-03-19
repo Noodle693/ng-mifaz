@@ -9,10 +9,10 @@
   width: 80vw;
   max-width: 600px;
   min-width: 200px;
-  margin-top: 4rem;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  margin-top: 4rem;
   row-gap: 1rem;
 }
 
@@ -74,10 +74,18 @@
   background-color: #ee0606 !important;
 }
 
-.cancellation-icon {
-  font-size: 24px !important;
+.booking-button {
+  height: 2.5rem;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  color: white !important;
+  background-color: #4e8cd7 !important;
+}
+
+.button-icon {
   height: 24px !important;
   width: 24px !important;
+  font-size: 24px !important;
 }
 
 @media (max-width: 560px) {
@@ -92,8 +100,8 @@
   }
 
   .svg-icon {
-    width: 24px;
     height: 24px;
+    width: 24px;
   }
 
   .detail-label {

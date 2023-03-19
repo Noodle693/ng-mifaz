@@ -1,16 +1,16 @@
 .header-container {
   height: 100%;
-  background-color: #00377b;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  background-color: #00377b;
 }
 
 .header-title {
   font-size: 2.5rem;
   font-weight: 500;
-  color: white;
-  margin-bottom: 1rem;
   word-break: normal;
   text-align: center;
+  margin-bottom: 1rem;
+  color: white;
 }

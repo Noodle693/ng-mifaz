@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DataService } from 'src/app/services/data.service';
 import { ApiService } from 'src/app/services/api.service';
 import { IUser } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-update-mail',
@@ -23,7 +24,8 @@ export class UpdateMailComponent {
     private dataService: DataService,
     private api: ApiService,
     private snackbar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private auth: AuthService
   ) {
     this.dataService.getUser().subscribe({
       next: (user) => (this.user = user),
@@ -40,19 +42,22 @@ export class UpdateMailComponent {
         let toUpdate = { ...this.user };
         toUpdate.mail = values.newMail!;
         this.api.updateUser(toUpdate, '', false).subscribe({
-          next: (response) => {
-            let u = this.user;
-            u.mail = response.mail;
-            u.firstName = response.firstName;
-            u.lastName = response.lastName;
-            u.phone = response.phone;
-            this.dataService.setUser(u);
+          next: () => {
+            this.api.authenticate(values.newMail!, this.auth.password).subscribe({
+              next: (response: any) => {
+                if (response.user) {
+                  this.api.saveAuthenticatedData(values.newMail!, this.auth.password);
+                  this.auth.mail = values.newMail!;
+                  this.dataService.setUser(response.user);
+                }
+              },
+              complete: () => {
+                this.snackbar.open('E-Mail Adresse wurde erfolgreich geändert.', 'Schließen');
+                this.router.navigate(['/settings']);
+              },
+            });
           },
           error: () => this.snackbar.open('Ein Fehler ist aufgetreten. Versuchen Sie es erneut.', 'Schließen'),
-          complete: () => {
-            this.snackbar.open('E-Mail Adresse wurde erfolgreich geändert.', 'Schließen');
-            this.router.navigate(['/settings']);
-          },
         });
       }
     }

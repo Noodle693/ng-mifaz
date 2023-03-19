@@ -9,11 +9,11 @@
   width: 80vw;
   max-width: 600px;
   min-width: 250px;
-  margin-top: 4rem;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   row-gap: 1rem;
+  margin-top: 4rem;
 }
 
 .user-container {
@@ -58,27 +58,27 @@
 
 .passenger-text,
 .driver-text {
-  margin-top: 5px;
-  margin-left: 10px;
   font-size: 1.4rem;
   font-weight: 700;
+  margin-top: 5px;
+  margin-left: 10px;
 }
 
 .passenger-rides,
 .driver-rides {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
   column-gap: 1rem;
   row-gap: 2rem;
-  justify-content: space-between;
   margin-top: 1rem;
 }
 
 .passenger-rides::after {
+  max-width: 160px;
   content: "";
   flex: auto;
   margin-left: 1rem;
-  max-width: 160px;
 }
 
 @media (max-width: 520px) {

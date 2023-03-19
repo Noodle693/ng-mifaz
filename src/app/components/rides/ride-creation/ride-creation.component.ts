@@ -16,13 +16,14 @@ export class RideCreationComponent {
   rideCreationForm = new FormGroup({
     origin: new FormControl('', [Validators.required]),
     destination: new FormControl('', [Validators.required]),
-    date: new FormControl('', Validators.required),
+    date: new FormControl('', [Validators.required]),
     time: new FormControl('', [Validators.required]),
-    maxCount: new FormControl(0, [Validators.required, Validators.max(4)]),
-    cost: new FormControl(0, [Validators.required]),
+    maxCount: new FormControl('', [Validators.required, Validators.max(4)]),
+    cost: new FormControl('', [Validators.required]),
   });
   selected: Date;
   user: IUser;
+  today = new Date();
 
   constructor(
     private router: Router,
@@ -46,17 +47,17 @@ export class RideCreationComponent {
       let values = this.rideCreationForm.value;
       let date = new Date(values.date!);
       let s = values.time!.split(':');
-      date.setHours(parseInt(s[0]) + 2);
+      let hrs = parseInt(s[0]);
+      date.setHours(hrs + 2);
       date.setMinutes(parseInt(s[1]));
-      console.log(date);
       this.api
         .createRide({
           driverId: this.user.id,
           origin: values.origin!,
           destination: values.destination!,
           date: date,
-          maxCount: values.maxCount!,
-          cost: values.cost!,
+          maxCount: parseInt(values.maxCount!),
+          cost: parseInt(values.cost!),
         } as ICreateRideRequest)
         .subscribe({
           next: (createdRide) => {

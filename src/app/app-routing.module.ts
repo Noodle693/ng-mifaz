@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'settings/update-phone', component: UpdatePhoneComponent, canActivate: [AuthGuard] },
   { path: 'settings/update-mail', component: UpdateMailComponent, canActivate: [AuthGuard] },
   { path: 'settings/update-password', component: UpdatePasswordComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: 'login' },
 ];
 
 @NgModule({

@@ -105,8 +105,8 @@
   .delete-dialog-container {
     width: 70vw;
     height: 25vh;
-    padding: 5px 10px 0 10px;
     font-size: 16px;
+    padding: 5px 10px 0 10px;
   }
 
   .delete-dialog-inner-container {

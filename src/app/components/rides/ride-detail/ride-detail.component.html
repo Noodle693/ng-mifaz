@@ -41,8 +41,17 @@
         <span class="detail-value"> {{ ride.cost + "€" }} </span>
       </div>
       <button *ngIf="userType" class="cancellation-button" mat-flat-button (click)="onCancellation()">
-        <mat-icon class="cancellation-icon">delete_forever</mat-icon>
+        <mat-icon class="button-icon">delete_forever</mat-icon>
         {{ userType == "passenger" ? "Mitfahrt absagen" : "Fahrt absagen" }}
+      </button>
+      <button
+        *ngIf="origin == 'overview' && ride.driverId != user.id && ride.passengerCount < ride.maxCount"
+        class="booking-button"
+        mat-flat-button
+        (click)="onBooking()"
+      >
+        <mat-icon class="button-icon">person_add</mat-icon>
+        Fahrt buchen
       </button>
     </div>
   </div>
